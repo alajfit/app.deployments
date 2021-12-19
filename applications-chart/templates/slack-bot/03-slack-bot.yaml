@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: slack-bot
+spec:
+  project: slack-bot
+  source:
+    repoURL: https://github.com/alajfit/app.deployments.git
+    path: charts/slack-bot
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: slack-bot
