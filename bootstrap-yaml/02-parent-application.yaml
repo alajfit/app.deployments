@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: applications
+spec:
+  project: argocd
+  source:
+    repoURL: https://github.com/alajfit/app.deployments.git
+    path: applications-chart
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
