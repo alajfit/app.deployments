@@ -44,3 +44,15 @@ ArgoCD Deployments
 14. Check Metrics through the CLI using the following command (this may take some time to work)
     1. ```sh $ kubectl top nodes```
     2. ```sh $ kubectl top pods --all-namespaces```
+15. Add Secrets to the Cluster for Docker Hub to get images
+    1. ```sh $ kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL -n $NAMESPACE`
+16. Add simple Deployment
+    1. Create folder in **application-charts/templates** e.g. slack-bot
+    2. Add a namespace file
+    3. Add a permissions file
+    4. Add the slack bot file
+17. Add a folder for the app to the **charts** folder e.g. slack-bot
+    1. Create a Chart file
+    2. Create a values file
+    3. Create a template folder
+    4. Add a deployment file to the folder
