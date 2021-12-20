@@ -30,22 +30,34 @@ ArgoCD Deployments
         1. Add permissions file
         2. Add the applications file
 8. Apply the charts into the Cluster with the following command
-    1. ```sh $ kubectl apply -n argocd -f bootstrap-yaml```
+    1. ```sh 
+        $ kubectl apply -n argocd -f bootstrap-yaml
+       ```
 9. Get the server name
-    1. ```sh $ kubectl get pods -n argocd```
+    1. ```sh 
+        $ kubectl get pods -n argocd
+       ```
 10. Forward ArgoCD UI to local machine
     1. kubectl port-forward <REPLACE WITH NAME FROM PREVIOUS COMMAND> 8888:8080 -n argocd
 11. Go to localhost:8888
 12. Login
     1. User: admin
     2. Password got from running the following command: 
-        1. ```sh $ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d```
+        1. ```sh 
+            $ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+           ```
 13. Sync Metrics Server within the UI
 14. Check Metrics through the CLI using the following command (this may take some time to work)
-    1. ```sh $ kubectl top nodes```
-    2. ```sh $ kubectl top pods --all-namespaces```
+    1. ```sh 
+        $ kubectl top nodes
+       ```
+    2. ```sh 
+        $ kubectl top pods --all-namespaces
+       ```
 15. Add Secrets to the Cluster for Docker Hub to get images
-    1. ```sh $ kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL -n $NAMESPACE`
+    1. ```sh 
+        $ kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL -n $NAMESPACE
+       ```
 16. Add simple Deployment
     1. Create folder in **application-charts/templates** e.g. slack-bot
     2. Add a namespace file
